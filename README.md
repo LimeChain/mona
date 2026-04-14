@@ -1,6 +1,6 @@
 # Mona
 
-Lean, CU-optimised on-chain Solana router.
+CU-optimized on-chain Solana router.
 
 ```
                                             o8%8888,
