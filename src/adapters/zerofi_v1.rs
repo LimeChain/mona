@@ -31,8 +31,8 @@ impl SwapArgs {
 ///   3  ta_in            (writable)
 ///   4  cfg_out          (writable)
 ///   5  ta_out           (writable)
-///   6  ta_in            (writable)
-///   7  ta_out           (writable)
+///   6  usr_ta_in        (writable)
+///   7  usr_ta_out       (writable)
 ///   8  token_prog       (readonly)
 ///   9  sysvar_ixs       (readonly)
 pub fn swap_v1(payer: &AccountView, rem: &[AccountView], amount_in: u64, _a_to_b: bool) {
@@ -44,8 +44,8 @@ pub fn swap_v1(payer: &AccountView, rem: &[AccountView], amount_in: u64, _a_to_b
         InstructionAccount::writable(rem[3].address()),       // ta_in
         InstructionAccount::writable(rem[4].address()),       // cfg_out
         InstructionAccount::writable(rem[5].address()),       // ta_out
-        InstructionAccount::writable(rem[6].address()),       // ta_in
-        InstructionAccount::writable(rem[7].address()),       // ta_out
+        InstructionAccount::writable(rem[6].address()),       // usr_ta_in
+        InstructionAccount::writable(rem[7].address()),       // usr_ta_out
         InstructionAccount::writable_signer(payer.address()), // payer
         InstructionAccount::readonly(rem[8].address()),       // token_prog
         InstructionAccount::readonly(rem[9].address()),       // sysvar_ixs

@@ -93,7 +93,7 @@ impl SwapV1Chained {
 
 /// Dispatch a single swap_v1 CPI.
 #[inline(always)]
-fn dispatch(payer: &AccountView, rem: &[AccountView], amount_in: u64, a_to_b: bool, dex: Dex) -> ProgramResult {
+fn dispatch(payer: &AccountView, rem: &[AccountView], amount_in: u64, a_to_b: bool, dex: Dex) {
     let handler: fn(&AccountView, &[AccountView], u64, bool) = match dex {
         Dex::Alphaq => adapters::alphaq_v1::swap_v1,
         Dex::Aquifer => adapters::aquifer_v1::swap_v1,
@@ -105,9 +105,7 @@ fn dispatch(payer: &AccountView, rem: &[AccountView], amount_in: u64, a_to_b: bo
         Dex::Zerofi => adapters::zerofi_v1::swap_v1,
     };
 
-    handler(payer, rem, amount_in, a_to_b);
-
-    Ok(())
+    handler(payer, rem, amount_in, a_to_b)
 }
 
 /// Resolve accounts, dispatch swap, return (new offset, output delta).
@@ -131,7 +129,7 @@ fn exec_hop(
     let dst_ta_idx = offset + dex.dst_ta_offset(a_to_b);
     let dst_before = token_bal(&accs[dst_ta_idx]);
 
-    dispatch(payer, rem, amount_in, a_to_b, dex)?;
+    dispatch(payer, rem, amount_in, a_to_b, dex);
 
     Ok((end, token_bal(&accs[dst_ta_idx]).wrapping_sub(dst_before)))
 }

@@ -33,9 +33,9 @@ impl SwapArgs {
 ///   4  user_ata_b       (writable)
 ///   5  vault_ta_a       (writable)
 ///   6  vault_ta_b       (writable)
-///   7  authority_a      (writable)
-///   8  authority_b      (writable)
-///   9  vendor_key       (writable)
+///   7  authority_a      (readonly)
+///   8  authority_b      (readonly)
+///   9  vendor_key       (readonly)
 ///  10  token_prog       (readonly)
 ///  11  sysvar_ixs       (readonly)
 pub fn swap_v1(payer: &AccountView, rem: &[AccountView], amount_in: u64, a_to_b: bool) {
