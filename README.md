@@ -43,7 +43,7 @@ CU benchmarks between Mona, Jupiter and direct (non-router) program hit:
 
 _swaps done at slot: 413,144,803_
 
-Simulation time comparison (wall-clock, single-hop `sim_tx`):
+Simulation time comparison (single-hop `sim_tx`) ran on a Macbook M4 Pro:
 
 ![sim time comparison](assets/cmp.png)
 
