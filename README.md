@@ -21,6 +21,10 @@ CU-optimized on-chain Solana router.
                                         '''::===..-'   =  --.
 ```
 
+> The program hasn't been audited. Use at your own risk.
+
+Deployment address: [FiCPMBXAsryUHu3Cf89YQ3cXcnACX7e7ybn1hip5HT6P](https://solscan.io/account/FiCPMBXAsryUHu3Cf89YQ3cXcnACX7e7ybn1hip5HT6P)
+
 The router supports two modes of execution:
 
 - chained: output of hop `N` feeds as `amount_in` to hop `N+1`, single slippage check at end.
