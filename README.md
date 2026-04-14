@@ -44,7 +44,7 @@ CU benchmarks between Mona, Jupiter and direct (non-router) program hit:
 |-------:|-------:|-----:|----:|
 | alphaq | 30,047 | 32,413 | 36,894 |
 | aquifer | 74,069 | 79,924 | 80,183 |
-| bison | 69,748 | 71,968 | 76,656 |
+| bisonfi | 69,748 | 71,968 | 76,656 |
 | goonfi | — | — | 87,703 |
 | humidifi | 41,194 | 47,342 | 52,723 |
 | obric | 54,406 | 56,813 | 61,111 |

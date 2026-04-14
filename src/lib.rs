@@ -45,6 +45,6 @@ pub fn process_ix(program_id: &Address, accounts: &[AccountView], data: &[u8]) -
     match sel {
         #[cfg(feature = "v1")]
         IX_ROUTE_V1 => ixs::swap_v1::exec(program_id, accounts, rest),
-        _ => Err(errs::unsupported_dex()),
+        _ => Err(errs::unsupported_ix()),
     }
 }
