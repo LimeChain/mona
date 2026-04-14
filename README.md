@@ -1,6 +1,6 @@
 # Mona
 
-CU-optimised onchain Solana router.
+Lean, CU-optimised on-chain Solana router.
 
 ```
                                             o8%8888,
@@ -23,8 +23,19 @@ CU-optimised onchain Solana router.
 
 The router supports two routing modes:
 
-- chained: output of hop N feeds as amount_in to hop N+1, single slippage check at end.
-- split: each hop reads its own amount_in, per-step slippage check on output delta.
+- chained: output of hop `N` feeds as `amount_in` to hop `N+1`, single slippage check at end.
+- split: each hop reads its own `amount_in`, per-step slippage check on output delta.
+
+List of supported programs:
+
+- [x] AlphaQ
+- [x] Aquifer
+- [x] Bison
+- [x] Humidifi
+- [x] Obric
+- [x] Solfi
+- [x] Tessera
+- [x] Zerofi
 
 ---
 
@@ -49,7 +60,9 @@ Simulation time comparison (single-hop `sim_tx`) ran on a Macbook M4 Pro:
 
 ---
 
-The routing relies on a flat account layout, each adapter owns its full account slice. Instruction data (after selector):
+The routing relies on a flat account layout, each adapter owns its full account slice.
+
+Overview of the expected Instruction data:
 
 ```
    flags=0x01 (chained)                       flags=0x02 (split)
@@ -73,7 +86,6 @@ The routing relies on a flat account layout, each adapter owns its full account 
    │ [N₀..N₁] hop 1 remaining accounts            │   (mints, user TAs, vaults, etc.
    │ ...                                          │    all packed per-adapter)
    └──────────────────────────────────────────────┘
-
 ```
 
 ---
