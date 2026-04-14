@@ -65,6 +65,7 @@ The routing relies on a flat account layout, each adapter owns its full account 
 Overview of the expected Instruction data:
 
 ```
+   selector=0x01 (swap_v1)                    selector=0x01 (swap_v1)
    flags=0x01 (chained)                       flags=0x02 (split)
    ─────────────────────────────────          ─────────────────────────────────
    ┌──────────────────────┐                   ┌──────────────────────┐
