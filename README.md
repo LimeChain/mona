@@ -30,7 +30,7 @@ List of supported programs:
 
 - [x] AlphaQ
 - [x] Aquifer
-- [x] Bison
+- [x] BisonFi
 - [x] HumidiFi
 - [x] Obric
 - [x] SolFi

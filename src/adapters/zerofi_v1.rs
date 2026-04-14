@@ -16,7 +16,7 @@ pub struct SwapArgs {
 
 impl SwapArgs {
     pub fn new(amount_in: u64) -> Self {
-        Self { selector: 0x06, amount_in: amount_in.to_le_bytes(), min_out: 0u64.to_le_bytes() }
+        Self { selector: 0x06, amount_in: amount_in.to_le_bytes(), min_out: 1u64.to_le_bytes() }
     }
 
     pub fn as_bytes(&self) -> &[u8; ARGS_LEN] {
