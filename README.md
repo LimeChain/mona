@@ -21,7 +21,7 @@ CU-optimized on-chain Solana router.
                                         '''::===..-'   =  --.
 ```
 
-The router supports two routing modes:
+The router supports two modes of execution:
 
 - chained: output of hop `N` feeds as `amount_in` to hop `N+1`, single slippage check at end.
 - split: each hop reads its own `amount_in`, per-step slippage check on output delta.
@@ -31,11 +31,11 @@ List of supported programs:
 - [x] AlphaQ
 - [x] Aquifer
 - [x] Bison
-- [x] Humidifi
+- [x] HumidiFi
 - [x] Obric
-- [x] Solfi
+- [x] SolFi
 - [x] Tessera
-- [x] Zerofi
+- [x] ZeroFi
 
 ---
 
