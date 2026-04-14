@@ -1,0 +1,18 @@
+[package]
+name = "mona"
+version = "1.0.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[dependencies]
+five8_const = "1.0"
+pinocchio = { version = "0.10.2", features = ["cpi"] }
+
+[features]
+default = ["v1"]
+v1 = []
+
+[lints.rust]
+unexpected_cfgs = { level = "allow", check-cfg = ['cfg(target_os, values("solana"))', 'cfg(feature, values("v1"))'] }
