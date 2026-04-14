@@ -36,7 +36,7 @@ const IX_ROUTE_V1: u8 = 0x01;
 
 pub fn process_ix(program_id: &Address, accounts: &[AccountView], data: &[u8]) -> ProgramResult {
     if data.is_empty() {
-        return Err(errs::zero_amount_swap());
+        return Err(errs::zero_swap_data());
     }
 
     let sel = data[0];
