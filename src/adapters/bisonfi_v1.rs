@@ -32,8 +32,8 @@ impl SwapArgs {
 ///   3  market_ta_b     (writable)
 ///   4  user_ata_a      (writable)
 ///   5  user_ata_b      (writable)
-///   6  token_prog_a (readonly)
-///   7  token_prog_b(readonly)
+///   6  token_prog_a    (readonly)
+///   7  token_prog_b    (readonly)
 ///   8  sysvar_ixs      (readonly)
 pub fn swap_v1(payer: &AccountView, rem: &[AccountView], amount_in: u64, a_to_b: bool) {
     let args = SwapArgs::new(amount_in, a_to_b);

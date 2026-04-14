@@ -31,8 +31,8 @@ impl SwapArgs {
 ///   3  ta_in            (writable)
 ///   4  cfg_out          (writable)
 ///   5  ta_out           (writable)
-///   6  ta_in           (writable)
-///   7  ta_out          (writable)
+///   6  ta_in            (writable)
+///   7  ta_out           (writable)
 ///   8  token_prog       (readonly)
 ///   9  sysvar_ixs       (readonly)
 pub fn swap_v1(payer: &AccountView, rem: &[AccountView], amount_in: u64, _a_to_b: bool) {

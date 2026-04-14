@@ -35,8 +35,8 @@ impl SwapArgs {
 ///   6  user_ata_b       (writable)
 ///   7  mint_a           (readonly)
 ///   8  mint_b           (readonly)
-///   9  token_prog_a  (readonly)
-///  10  token_prog_b (readonly)
+///   9  token_prog_a     (readonly)
+///  10  token_prog_b     (readonly)
 ///  11  sysvar_ixs       (readonly)
 pub fn swap_v1(payer: &AccountView, rem: &[AccountView], amount_in: u64, a_to_b: bool) {
     let args = SwapArgs::new(amount_in, a_to_b);
