@@ -4,7 +4,7 @@ use pinocchio::{
     AccountView,
 };
 
-use crate::cons::zerofi::{ACCS_LEN, ARGS_LEN};
+use crate::cons::zerofi::{ACCS_LEN, ARGS_LEN, SWAP_SELECTOR};
 
 /// ZeroFi V1 swap args: selector(1) + amount_in(8) + min_out(8) = 17 bytes.
 #[repr(C, packed)]
@@ -16,7 +16,7 @@ pub struct SwapArgs {
 
 impl SwapArgs {
     pub fn new(amount_in: u64) -> Self {
-        Self { selector: 0x06, amount_in: amount_in.to_le_bytes(), min_out: 1u64.to_le_bytes() }
+        Self { selector: *SWAP_SELECTOR, amount_in: amount_in.to_le_bytes(), min_out: 1u64.to_le_bytes() }
     }
 
     pub fn as_bytes(&self) -> &[u8; ARGS_LEN] {

@@ -41,6 +41,7 @@ pub mod humidifi {
 
 pub mod zerofi {
     pub const ID: [u8; 32] = super::d("ZERor4xhbUycZ6gb9ntrhqscUcZmAbQDjEAtCf4hbZY");
+    pub const SWAP_SELECTOR: &[u8; 1] = &[0x06];
     pub const ACCS_LEN: usize = 10;
     pub const ARGS_LEN: usize = 17;
 }
