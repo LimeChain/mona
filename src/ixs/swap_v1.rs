@@ -131,7 +131,7 @@ fn exec_hop(
 
     dispatch(payer, rem, amount_in, a_to_b, dex);
 
-    Ok((end, token_bal(&accs[dst_ta_idx]).wrapping_sub(dst_before)))
+    Ok((end, token_bal(&accs[dst_ta_idx]).saturating_sub(dst_before)))
 }
 
 pub fn exec(_prog_id: &Address, accs: &[AccountView], data: &[u8]) -> ProgramResult {

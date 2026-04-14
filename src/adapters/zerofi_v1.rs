@@ -9,7 +9,7 @@ use crate::cons::zerofi::{ACCS_LEN, ARGS_LEN, SWAP_SELECTOR};
 /// ZeroFi V1 swap args: selector(1) + amount_in(8) + min_out(8) = 17 bytes.
 #[repr(C, packed)]
 pub struct SwapArgs {
-    pub selector: u8,
+    pub selector: [u8; 1],
     pub amount_in: [u8; 8],
     pub min_out: [u8; 8],
 }
