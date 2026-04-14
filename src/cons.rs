@@ -31,8 +31,6 @@ pub mod obric {
 
 pub mod humidifi {
     pub const ID: [u8; 32] = super::d("9H6tua7jkLhdm3w8BvgpTn5LZNU7g4ZynDmCiNN3q6Rp");
-    pub const SWAP_SELECTOR: &[u8; 1] = &[0x04];
-    pub const SWAP_V2_SELECTOR: &[u8; 1] = &[0x14];
     pub const SWAP_V3_SELECTOR: &[u8; 1] = &[0x0f];
     pub const ACCS_LEN: usize = 11;
     pub const ARGS_LEN: usize = 25;
@@ -43,6 +41,7 @@ pub mod humidifi {
 
 pub mod zerofi {
     pub const ID: [u8; 32] = super::d("ZERor4xhbUycZ6gb9ntrhqscUcZmAbQDjEAtCf4hbZY");
+    pub const SWAP_SELECTOR: &[u8; 1] = &[0x06];
     pub const ACCS_LEN: usize = 10;
     pub const ARGS_LEN: usize = 17;
 }

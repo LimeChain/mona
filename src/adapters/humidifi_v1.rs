@@ -75,7 +75,7 @@ fn obfuscate(data: &mut [u8]) {
 ///  14  humidifi_param   (readonly) — swap_id encoded in first 8 bytes of key
 ///
 /// CPI to Humidifi (15 accounts): payer injected at position 0.
-pub fn swap_v2(payer: &AccountView, rem: &[AccountView], amount_in: u64, a_to_b: bool) {
+pub fn swap_v3(payer: &AccountView, rem: &[AccountView], amount_in: u64, a_to_b: bool) {
     let mut args = SwapArgs::new(amount_in, a_to_b);
 
     // extract swap_id from the humidifi_param account key (first 8 bytes)

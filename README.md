@@ -21,6 +21,10 @@ CU-optimized on-chain Solana router.
                                         '''::===..-'   =  --.
 ```
 
+> The program hasn't been audited. Use at your own risk.
+
+Deployment address: [FiCPMBXAsryUHu3Cf89YQ3cXcnACX7e7ybn1hip5HT6P](https://solscan.io/account/FiCPMBXAsryUHu3Cf89YQ3cXcnACX7e7ybn1hip5HT6P)
+
 The router supports two modes of execution:
 
 - chained: output of hop `N` feeds as `amount_in` to hop `N+1`, single slippage check at end.
@@ -30,7 +34,7 @@ List of supported programs:
 
 - [x] AlphaQ
 - [x] Aquifer
-- [x] Bison
+- [x] BisonFi
 - [x] HumidiFi
 - [x] Obric
 - [x] SolFi
@@ -44,7 +48,7 @@ CU benchmarks between Mona, Jupiter and direct (non-router) program hit:
 |-------:|-------:|-----:|----:|
 | alphaq | 30,047 | 32,413 | 36,894 |
 | aquifer | 74,069 | 79,924 | 80,183 |
-| bison | 69,748 | 71,968 | 76,656 |
+| bisonfi | 69,748 | 71,968 | 76,656 |
 | goonfi | — | — | 87,703 |
 | humidifi | 41,194 | 47,342 | 52,723 |
 | obric | 54,406 | 56,813 | 61,111 |
@@ -65,6 +69,7 @@ The routing relies on a flat account layout, each adapter owns its full account 
 Overview of the expected Instruction data:
 
 ```
+   selector=0x01 (swap_v1)                    selector=0x01 (swap_v1)
    flags=0x01 (chained)                       flags=0x02 (split)
    ─────────────────────────────────          ─────────────────────────────────
    ┌──────────────────────┐                   ┌──────────────────────┐
