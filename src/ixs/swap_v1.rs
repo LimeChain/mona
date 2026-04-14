@@ -98,7 +98,7 @@ fn dispatch(payer: &AccountView, rem: &[AccountView], amount_in: u64, a_to_b: bo
         Dex::Alphaq => adapters::alphaq_v1::swap_v1,
         Dex::Aquifer => adapters::aquifer_v1::swap_v1,
         Dex::Bisonfi => adapters::bisonfi_v1::swap_v1,
-        Dex::HumidifiV2 | Dex::HumidifiV3 => adapters::humidifi_v1::swap_v2,
+        Dex::HumidifiV2 | Dex::HumidifiV3 => adapters::humidifi_v1::swap_v3,
         Dex::Obric => adapters::obric_v2::swap_v1,
         Dex::Solfi => adapters::solfi_v2::swap_v1,
         Dex::Tessera => adapters::tessera_v1::swap_v1,
