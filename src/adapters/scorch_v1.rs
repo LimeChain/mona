@@ -45,7 +45,7 @@ impl SwapArgs {
 ///   14  state_b          (writable)
 ///   15  state_c          (writable)
 ///   16  sysvar_ixs       (readonly)
-///   17  scorch_param     (readonly) - encoded in first 16 bytes of key
+///   17  scorch_param     (readonly) - encoded in first 17 bytes of key
 ///
 ///   CPI to Scorch (18 accounts): payer injected at position 1.
 pub fn swap_v1(payer: &AccountView, rem: &[AccountView], amount_in: u64, _a_to_b: bool) {
