@@ -154,7 +154,7 @@ const REM_ACCS_LEN_V1: [usize; 10] = [
     humidifi::ACCS_LEN_V2V3, // 3  HumidifiV2
     humidifi::ACCS_LEN_V2V3, // 4  HumidifiV3
     obric::ACCS_LEN,         // 5  Obric
-    scorch::ACCS_LEN,        // 6 Scorch
+    scorch::ACCS_LEN,        // 6  Scorch
     solfi::ACCS_LEN,         // 7  Solfi
     tessera::ACCS_LEN,       // 8  Tessera
     zerofi::ACCS_LEN,        // 9  Zerofi
