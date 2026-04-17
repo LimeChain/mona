@@ -3,12 +3,11 @@ use pinocchio::cpi::{invoke_unchecked, CpiAccount};
 use pinocchio::instruction::{InstructionAccount, InstructionView};
 use pinocchio::AccountView;
 
-// Scorch V1 swap args: selector(1) + param(16) + padding (1) + amount_in(8) + min_out(8) = 34 bytes.
+// Scorch V1 swap args: selector(1) + param(17) + amount_in(8) + min_out(8) = 34 bytes.
 #[repr(C, packed)]
 pub struct SwapArgs {
     pub selector: [u8; 1],
-    pub scorch_param: [u8; 16],
-    pub flag: u8,
+    pub scorch_param: [u8; 17],
     pub amount_in: [u8; 8],
     pub min_out: [u8; 8],
 }
@@ -17,8 +16,7 @@ impl SwapArgs {
     pub fn new(amount_in: u64) -> Self {
         Self {
             selector: *SWAP_SELECTOR,
-            scorch_param: [0u8; 16], // patched by caller from scorch_param key
-            flag: 0,
+            scorch_param: [0u8; 17], // patched by caller from scorch_param key
             amount_in: amount_in.to_le_bytes(),
             min_out: 1u64.to_le_bytes(),
         }
@@ -53,9 +51,9 @@ impl SwapArgs {
 pub fn swap_v1(payer: &AccountView, rem: &[AccountView], amount_in: u64, _a_to_b: bool) {
     let mut args = SwapArgs::new(amount_in);
 
-    // extract params from the scorch_param account key (first 16 bytes)
+    // extract params from the scorch_param account key (first 17 bytes)
     args.scorch_param
-        .copy_from_slice(&rem[17].address().as_ref()[..16]);
+        .copy_from_slice(&rem[17].address().as_ref()[..17]);
 
     let ix_accs = [
         InstructionAccount::readonly(rem[1].address()), // market
