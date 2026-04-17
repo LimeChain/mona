@@ -37,6 +37,7 @@ List of supported programs:
 - [x] BisonFi
 - [x] HumidiFi
 - [x] Obric
+- [x] Scorch
 - [x] SolFi
 - [x] Tessera
 - [x] ZeroFi
@@ -52,6 +53,7 @@ CU benchmarks between Mona, Jupiter and direct (non-router) program hit:
 | goonfi | — | — | 87,703 |
 | humidifi | 41,194 | 47,342 | 52,723 |
 | obric | 54,406 | 56,813 | 61,111 |
+| scorch | TODO | TODO | TODO |
 | solfi | 82,616 | 90,086 | 99,717 |
 | tessera | — | 63,198 | 79,376 |
 | zerofi | 34,734 | 37,238 | 41,910 |

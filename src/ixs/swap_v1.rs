@@ -100,6 +100,7 @@ fn dispatch(payer: &AccountView, rem: &[AccountView], amount_in: u64, a_to_b: bo
         Dex::Bisonfi => adapters::bisonfi_v1::swap_v1,
         Dex::HumidifiV2 | Dex::HumidifiV3 => adapters::humidifi_v1::swap_v3,
         Dex::Obric => adapters::obric_v2::swap_v1,
+        Dex::Scorch => adapters::scorch_v1::swap_v1,
         Dex::Solfi => adapters::solfi_v2::swap_v1,
         Dex::Tessera => adapters::tessera_v1::swap_v1,
         Dex::Zerofi => adapters::zerofi_v1::swap_v1,

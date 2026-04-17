@@ -2,8 +2,10 @@ use five8_const::decode_32_const as d;
 
 pub const MAX_HOPS: usize = 30;
 
-const OBF_CPI_KEY_SEED: [u8; 32] =
-    [58, 255, 47, 255, 226, 186, 235, 195, 123, 131, 245, 8, 11, 233, 132, 219, 225, 40, 79, 119, 169, 121, 169, 58, 197, 1, 122, 9, 216, 164, 149, 97];
+const OBF_CPI_KEY_SEED: [u8; 32] = [
+    58, 255, 47, 255, 226, 186, 235, 195, 123, 131, 245, 8, 11, 233, 132, 219, 225, 40, 79, 119,
+    169, 121, 169, 58, 197, 1, 122, 9, 216, 164, 149, 97,
+];
 pub const OBF_CPI_KEY: u64 = u64::from_le_bytes([
     OBF_CPI_KEY_SEED[0],
     OBF_CPI_KEY_SEED[1],
@@ -74,6 +76,13 @@ pub mod alphaq {
     pub const ARGS_LEN: usize = 18;
 }
 
+pub mod scorch {
+    pub const ID: [u8; 32] = super::d("SCoRcH8c2dpjvcJD6FiPbCSQyQgu3PcUAWj2Xxx3mqn");
+    pub const SWAP_SELECTOR: &[u8; 1] = &[0x02];
+    pub const ACCS_LEN: usize = 18;
+    pub const ARGS_LEN: usize = 34;
+}
+
 /// DEX discriminant;
 /// each variant maps to a specific adapter.
 #[derive(Copy, Clone, PartialEq, Eq, Debug)]
@@ -85,13 +94,25 @@ pub enum Dex {
     HumidifiV2 = 3,
     HumidifiV3 = 4,
     Obric = 5,
-    Solfi = 6,
-    Tessera = 7,
-    Zerofi = 8,
+    Scorch = 6,
+    Solfi = 7,
+    Tessera = 8,
+    Zerofi = 9,
 }
 
 impl Dex {
-    pub const ALL: [Dex; 9] = [Dex::Alphaq, Dex::Aquifer, Dex::Bisonfi, Dex::HumidifiV2, Dex::HumidifiV3, Dex::Obric, Dex::Solfi, Dex::Tessera, Dex::Zerofi];
+    pub const ALL: [Dex; 10] = [
+        Dex::Alphaq,
+        Dex::Aquifer,
+        Dex::Bisonfi,
+        Dex::HumidifiV2,
+        Dex::HumidifiV3,
+        Dex::Obric,
+        Dex::Scorch,
+        Dex::Solfi,
+        Dex::Tessera,
+        Dex::Zerofi,
+    ];
 
     /// Number of remaining accounts per hop for swap_v1 (excludes shared payer).
     #[inline(always)]
@@ -108,6 +129,7 @@ impl Dex {
             Dex::Bisonfi => if a_to_b { 5 } else { 4 },
             Dex::HumidifiV2 | Dex::HumidifiV3 => if a_to_b { 5 } else { 4 },
             Dex::Obric => if a_to_b { 7 } else { 6 },
+            Dex::Scorch => 3,
             Dex::Solfi => if a_to_b { 7 } else { 6 },
             Dex::Tessera => if a_to_b { 6 } else { 5 },
             Dex::Zerofi => 7,
@@ -117,7 +139,7 @@ impl Dex {
     /// Map byte to Dex variant.
     #[inline(always)]
     pub fn from_u8(v: u8) -> Option<Self> {
-        if v <= 8 {
+        if v <= 9 {
             Some(Self::ALL[v as usize])
         } else {
             None
@@ -125,14 +147,15 @@ impl Dex {
     }
 }
 
-const REM_ACCS_LEN_V1: [usize; 9] = [
+const REM_ACCS_LEN_V1: [usize; 10] = [
     alphaq::ACCS_LEN,        // 0  Alphaq
     aquifer::ACCS_LEN,       // 1  Aquifer
     bisonfi::ACCS_LEN,       // 2  Bisonfi
     humidifi::ACCS_LEN_V2V3, // 3  HumidifiV2
     humidifi::ACCS_LEN_V2V3, // 4  HumidifiV3
     obric::ACCS_LEN,         // 5  Obric
-    solfi::ACCS_LEN,         // 6  Solfi
-    tessera::ACCS_LEN,       // 7  Tessera
-    zerofi::ACCS_LEN,        // 8  Zerofi
+    scorch::ACCS_LEN,        // 6  Scorch
+    solfi::ACCS_LEN,         // 7  Solfi
+    tessera::ACCS_LEN,       // 8  Tessera
+    zerofi::ACCS_LEN,        // 9  Zerofi
 ];

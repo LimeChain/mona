@@ -3,6 +3,7 @@ pub mod aquifer_v1;
 pub mod bisonfi_v1;
 pub mod humidifi_v1;
 pub mod obric_v2;
+pub mod scorch_v1;
 pub mod solfi_v2;
 pub mod tessera_v1;
 pub mod zerofi_v1;
