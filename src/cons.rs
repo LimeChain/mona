@@ -88,30 +88,30 @@ pub mod scorch {
 #[derive(Copy, Clone, PartialEq, Eq, Debug)]
 #[repr(u8)]
 pub enum Dex {
-    Alphaq = 0,
+    AlphaQ = 0,
     Aquifer = 1,
-    Bisonfi = 2,
-    HumidifiV2 = 3,
-    HumidifiV3 = 4,
+    BisonFi = 2,
+    HumidiFiV2 = 3,
+    HumidiFiV3 = 4,
     Obric = 5,
     Scorch = 6,
-    Solfi = 7,
+    SolFi = 7,
     Tessera = 8,
-    Zerofi = 9,
+    ZeroFi = 9,
 }
 
 impl Dex {
     pub const ALL: [Dex; 10] = [
-        Dex::Alphaq,
+        Dex::AlphaQ,
         Dex::Aquifer,
-        Dex::Bisonfi,
-        Dex::HumidifiV2,
-        Dex::HumidifiV3,
+        Dex::BisonFi,
+        Dex::HumidiFiV2,
+        Dex::HumidiFiV3,
         Dex::Obric,
         Dex::Scorch,
-        Dex::Solfi,
+        Dex::SolFi,
         Dex::Tessera,
-        Dex::Zerofi,
+        Dex::ZeroFi,
     ];
 
     /// Number of remaining accounts per hop for swap_v1 (excludes shared payer).
@@ -124,15 +124,15 @@ impl Dex {
     #[rustfmt::skip]
     pub fn dst_ta_offset(&self, a_to_b: bool) -> usize {
         match self {
-            Dex::Alphaq => if a_to_b { 4 } else { 3 },
+            Dex::AlphaQ => if a_to_b { 4 } else { 3 },
             Dex::Aquifer => 3,
-            Dex::Bisonfi => if a_to_b { 5 } else { 4 },
-            Dex::HumidifiV2 | Dex::HumidifiV3 => if a_to_b { 5 } else { 4 },
+            Dex::BisonFi => if a_to_b { 5 } else { 4 },
+            Dex::HumidiFiV2 | Dex::HumidiFiV3 => if a_to_b { 5 } else { 4 },
             Dex::Obric => if a_to_b { 7 } else { 6 },
             Dex::Scorch => 3,
-            Dex::Solfi => if a_to_b { 7 } else { 6 },
+            Dex::SolFi => if a_to_b { 7 } else { 6 },
             Dex::Tessera => if a_to_b { 6 } else { 5 },
-            Dex::Zerofi => 7,
+            Dex::ZeroFi => 7,
         }
     }
 

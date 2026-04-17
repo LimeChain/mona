@@ -95,15 +95,15 @@ impl SwapV1Chained {
 #[inline(always)]
 fn dispatch(payer: &AccountView, rem: &[AccountView], amount_in: u64, a_to_b: bool, dex: Dex) {
     let handler: fn(&AccountView, &[AccountView], u64, bool) = match dex {
-        Dex::Alphaq => adapters::alphaq_v1::swap_v1,
+        Dex::AlphaQ => adapters::alphaq_v1::swap_v1,
         Dex::Aquifer => adapters::aquifer_v1::swap_v1,
-        Dex::Bisonfi => adapters::bisonfi_v1::swap_v1,
-        Dex::HumidifiV2 | Dex::HumidifiV3 => adapters::humidifi_v1::swap_v3,
+        Dex::BisonFi => adapters::bisonfi_v1::swap_v1,
+        Dex::HumidiFiV2 | Dex::HumidiFiV3 => adapters::humidifi_v1::swap_v3,
         Dex::Obric => adapters::obric_v2::swap_v1,
         Dex::Scorch => adapters::scorch_v1::swap_v1,
-        Dex::Solfi => adapters::solfi_v2::swap_v1,
+        Dex::SolFi => adapters::solfi_v2::swap_v1,
         Dex::Tessera => adapters::tessera_v1::swap_v1,
-        Dex::Zerofi => adapters::zerofi_v1::swap_v1,
+        Dex::ZeroFi => adapters::zerofi_v1::swap_v1,
     };
 
     handler(payer, rem, amount_in, a_to_b)
